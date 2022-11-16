@@ -1,10 +1,21 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    // Using Kotlin Android Extensions
+    id 'kotlin-android-extensions'
+
+    // Using Navigation Safe Args Kotlin
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
     compileSdk 32
+
+    // Enable DataBinding Features
+    dataBinding {
+        enabled true
+    }
 
     defaultConfig {
         applicationId "com.john.kebunku"
@@ -37,6 +48,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Navigation UI & Fragment Components
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
