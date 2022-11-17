@@ -24,4 +24,10 @@ interface KebunDao {
 
     @Query("UPDATE kebun SET light_intensity= :lightIntensity WHERE uuid= :uuid")
     suspend fun updateLightIntensity(lightIntensity: Float, uuid: Int)
+
+    @Query("UPDATE kebun SET water_is_on= :waterIsOn WHERE uuid= :uuid")
+    suspend fun updateWaterIsOn(waterIsOn: Int, uuid: Int)
+
+    @Query("UPDATE kebun SET light_is_on= :lightIsOn WHERE uuid= :uuid")
+    suspend fun updateLightIsOn(lightIsOn: Int, uuid: Int)
 }
