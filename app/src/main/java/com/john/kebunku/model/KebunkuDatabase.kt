@@ -8,6 +8,7 @@ import com.john.kebunku.model.kebun.Kebun
 import com.john.kebunku.model.kebun.KebunDao
 import com.john.kebunku.model.user.User
 import com.john.kebunku.model.user.UserDao
+import com.john.kebunku.util.buildDB
 
 @Database(entities = arrayOf(User::class, Kebun::class), version = 1)
 abstract class KebunkuDatabase: RoomDatabase() {
@@ -19,10 +20,7 @@ abstract class KebunkuDatabase: RoomDatabase() {
         private val LOCK = Any()
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context,
-                KebunkuDatabase::class.java,
-                "newkebunkudb"
-            ).build()
+            buildDB(context)
 
         operator fun invoke(context: Context) {
             if (instance != null) {
