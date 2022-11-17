@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.john.kebunku.R
-import kotlinx.android.synthetic.main.fragment_login.view.*
+import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
     override fun onCreateView(
@@ -20,7 +20,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.buttonLogin.setOnClickListener {
+        buttonLogin.setOnClickListener {
             val action = LoginFragmentDirections.actionDashboardFragment()
             Navigation.findNavController(view).navigate(action)
         }
