@@ -11,7 +11,7 @@ interface KebunDao {
     suspend fun insert(kebun: Kebun)
 
     @Query("SELECT * FROM kebun WHERE uuid= :uuid")
-    suspend fun selectKebun(uuid: Int)
+    suspend fun selectKebun(uuid: Int): Kebun
 
     @Query("UPDATE kebun SET water_level= :waterLevel WHERE uuid= :uuid")
     suspend fun updateWaterLevel(waterLevel: Float, uuid: Int)
@@ -22,6 +22,6 @@ interface KebunDao {
     @Query("UPDATE kebun SET humidity_level= :humidityLevel WHERE uuid= :uuid")
     suspend fun updateHumidityLevel(humidityLevel: Float, uuid: Int)
 
-    @Query("UPDATE kebun SET light_intensity= :lightIntensity WHERE uuid= uuid")
+    @Query("UPDATE kebun SET light_intensity= :lightIntensity WHERE uuid= :uuid")
     suspend fun updateLightIntensity(lightIntensity: Float, uuid: Int)
 }

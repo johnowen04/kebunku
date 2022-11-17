@@ -11,5 +11,5 @@ interface UserDao {
     suspend fun insert(user: User)
 
     @Query("SELECT * FROM user WHERE username= :username AND password= :password")
-    suspend fun selectUser(username: String, password: String)
+    suspend fun selectUser(username: String, password: String): User
 }
