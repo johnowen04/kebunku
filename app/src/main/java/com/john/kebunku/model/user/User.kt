@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey
 data class User(
     @ColumnInfo(name = "username")
     var username: String,
+    @ColumnInfo(name = "name")
+    var name: String,
     @ColumnInfo(name = "password")
     var password: String
 ) {
