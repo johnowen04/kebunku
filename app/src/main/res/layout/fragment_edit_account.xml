@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
+    android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.CreateAccountFragment" >
+    tools:context=".view.EditAccountFragment" >
 
     <ImageView
-        android:id="@+id/imageUserCreate"
+        android:id="@+id/imageUserEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -18,7 +18,7 @@
         tools:src="@tools:sample/avatars" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputUsernameCreateFragment"
+        android:id="@+id/inputUsernameEditFragment"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,16 +29,16 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageUserCreate">
+        app:layout_constraintTop_toBottomOf="@+id/imageUserEdit">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editUsernameCreateFragment"
+            android:id="@+id/editUsernameEditFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputNameCreateFragment"
+        android:id="@+id/inputNameEditFragment"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -50,16 +50,16 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputUsernameCreateFragment">
+        app:layout_constraintTop_toBottomOf="@+id/inputUsernameEditFragment">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editNameCreateFragment"
+            android:id="@+id/editNameEditFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputPasswordCreateFragment"
+        android:id="@+id/inputPasswordEditFragment"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -71,16 +71,16 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNameCreateFragment">
+        app:layout_constraintTop_toBottomOf="@+id/inputNameEditFragment">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editPasswordCreateFragment"
+            android:id="@+id/editPasswordEditFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputRetypePasswordCreateFragment"
+        android:id="@+id/inputRetypePasswordEditFragment"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -92,26 +92,26 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputPasswordCreateFragment">
+        app:layout_constraintTop_toBottomOf="@+id/inputPasswordEditFragment">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editRetypePasswordCreateFragment"
+            android:id="@+id/editRetypePasswordEditFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonRegisterUser"
+        android:id="@+id/buttonSaveUser"
         style="@style/loginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:text="Register"
+        android:text="Sava Changes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputRetypePasswordCreateFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/inputRetypePasswordEditFragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

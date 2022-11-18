@@ -29,6 +29,9 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/dashboardFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/actionEditAccountFragment"
+            app:destination="@id/editAccountFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -38,5 +41,14 @@
         <action
             android:id="@+id/actionLoginFragmentFromRegister"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAccountFragment"
+        android:name="com.john.kebunku.view.EditAccountFragment"
+        android:label="fragment_edit_account"
+        tools:layout="@layout/fragment_edit_account" >
+        <action
+            android:id="@+id/actionDashboardFragmentFromEdit"
+            app:destination="@id/dashboardFragment" />
     </fragment>
 </navigation>
