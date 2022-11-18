@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.john.kebunku.R
 import com.john.kebunku.viewmodel.CreateAccountViewModel
 import kotlinx.android.synthetic.main.fragment_create_account.*
-import kotlinx.android.synthetic.main.fragment_edit_account.*
 
 class CreateAccountFragment : Fragment() {
     private lateinit var viewModel: CreateAccountViewModel
@@ -29,7 +29,23 @@ class CreateAccountFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(CreateAccountViewModel::class.java)
 
         buttonRegisterUser.setOnClickListener {
-            if (editPasswordCreateFragment.text.toString() == editRetypePasswordCreateFragment.toString()) {
+            var login = true
+
+            if (editUsernameCreateFragment.text.toString().isEmpty()) {
+                login = false
+                Toast.makeText(view.context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
+            } else if (editNameCreateFragment.text.toString().isEmpty()) {
+                login = false
+                Toast.makeText(view.context, "Name cannot be empty", Toast.LENGTH_SHORT).show()
+            } else if (editPasswordCreateFragment.text.toString().isEmpty() ||
+                    editRetypePasswordCreateFragment.text.toString().isEmpty()) {
+                login = false
+                Toast.makeText(view.context, "Password cannot be empty", Toast.LENGTH_SHORT).show()
+            }
+
+            if (login &&
+                editPasswordCreateFragment.text.toString() == editRetypePasswordCreateFragment.text.toString()) {
+
                 viewModel.register(
                     editUsernameCreateFragment.text.toString(),
                     editNameCreateFragment.text.toString(),
