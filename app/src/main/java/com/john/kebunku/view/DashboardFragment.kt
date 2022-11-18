@@ -20,6 +20,11 @@ class DashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        buttonAccount.setOnClickListener {
+            val action = DashboardFragmentDirections.actionEditAccountFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+
         buttonLogout.setOnClickListener {
             val action = DashboardFragmentDirections.actionLoginFragment()
             Navigation.findNavController(it).navigate(action)

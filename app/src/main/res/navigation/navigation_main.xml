@@ -17,7 +17,9 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/actionCreateAccountFragment"
-            app:destination="@id/createAccountFragment" />
+            app:destination="@id/createAccountFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -31,7 +33,9 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/actionEditAccountFragment"
-            app:destination="@id/editAccountFragment" />
+            app:destination="@id/editAccountFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -40,7 +44,8 @@
         tools:layout="@layout/fragment_create_account">
         <action
             android:id="@+id/actionLoginFragmentFromRegister"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/editAccountFragment"
@@ -49,6 +54,7 @@
         tools:layout="@layout/fragment_edit_account" >
         <action
             android:id="@+id/actionDashboardFragmentFromEdit"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>

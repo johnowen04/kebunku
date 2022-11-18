@@ -24,5 +24,10 @@ class LoginFragment : Fragment() {
             val action = LoginFragmentDirections.actionDashboardFragment()
             Navigation.findNavController(view).navigate(action)
         }
+
+        buttonRegister.setOnClickListener {
+            val action = LoginFragmentDirections.actionCreateAccountFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }
