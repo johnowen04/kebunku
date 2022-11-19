@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
                 viewModel.userLiveData.observe(viewLifecycleOwner) {
                     if (it != null) {
                         Toast.makeText(view.context, "Login successful", Toast.LENGTH_SHORT).show()
-                        val action = LoginFragmentDirections.actionDashboardFragment()
+                        val action = LoginFragmentDirections.actionDashboardFragment(editUsername.text.toString())
                         Navigation.findNavController(view).navigate(action)
                     } else {
                         Toast.makeText(view.context, "Login failed", Toast.LENGTH_SHORT).show()
