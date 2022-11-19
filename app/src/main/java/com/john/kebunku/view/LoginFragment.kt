@@ -1,5 +1,6 @@
 package com.john.kebunku.view
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.john.kebunku.R
+import com.john.kebunku.util.SharedPreferencesManager
 import com.john.kebunku.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -25,6 +27,14 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.let {
+            val username = SharedPreferencesManager.getUsername(it.applicationContext)
+            if (username.isNotEmpty()) {
+                val action = LoginFragmentDirections.actionDashboardFragment(username)
+                Navigation.findNavController(view).navigate(action)
+            }
+        }
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
@@ -45,6 +55,7 @@ class LoginFragment : Fragment() {
                 viewModel.userLiveData.observe(viewLifecycleOwner) {
                     if (it != null) {
                         Toast.makeText(view.context, "Login successful", Toast.LENGTH_SHORT).show()
+                        SharedPreferencesManager.setUsername(it.username, view.context)
                         val action = LoginFragmentDirections.actionDashboardFragment(editUsername.text.toString())
                         Navigation.findNavController(view).navigate(action)
                     } else {
