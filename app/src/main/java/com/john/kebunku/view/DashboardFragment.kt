@@ -29,6 +29,15 @@ class DashboardFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
         val username = DashboardFragmentArgs.fromBundle(requireArguments()).username
 
+        viewModel.fetch(username, 1)
+
+        observeViewModel()
+
+        buttonLight.setOnClickListener {
+            viewModel.turnLight()
+            observeViewModel()
+        }
+
         buttonAccount.setOnClickListener {
             val action = DashboardFragmentDirections.actionEditAccountFragment()
             Navigation.findNavController(it).navigate(action)
@@ -38,6 +47,21 @@ class DashboardFragment : Fragment() {
             SharedPreferencesManager.clearUsername(view.context)
             val action = DashboardFragmentDirections.actionLoginFragment()
             Navigation.findNavController(it).navigate(action)
+        }
+    }
+
+    private fun observeViewModel() {
+        viewModel.userLiveData.observe(viewLifecycleOwner) {
+            textView4.text = "Hello, ${it.name}"
+        }
+
+        viewModel.kebunLiveData.observe(viewLifecycleOwner) {
+            textWaterLevel.text = "${it.waterLevel * 100}%"
+            textFertilizerLevel.text = "${it.fertilizerLevel * 100}%"
+            textHumidityLevel.text = "${it.humidityLevel * 100}%"
+            textLightIntensity.text = "${it.lightIntensity * 100}%"
+
+            buttonLight.text = if (it.lightIsOn == 1) "Turn Off Light" else "Turn On Light"
         }
     }
 }
